@@ -1,0 +1,4 @@
+name: DreamLevelReloaded
+version: '${project.version}'
+main: cn.kylin.dreamlevel.dreamlevelreloaded.DreamLevelReloaded
+api-version: '1.21'
