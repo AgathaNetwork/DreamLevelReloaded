@@ -1,14 +1,14 @@
 package cn.kylin.dreamlevel.dreamlevelreloaded.command;
 
-import cn.kylin.dreamlevel.Main;
-import cn.kylin.dreamlevel.api.data.Level;
-import cn.kylin.dreamlevel.api.data.PlayerData;
-import cn.kylin.dreamlevel.config.LangLoader;
-import cn.kylin.dreamlevel.api.event.DreamEventCaller;
-import cn.kylin.dreamlevel.api.event.DreamPlayerGetExpEvent;
-import cn.kylin.dreamlevel.api.event.DreamPlayerLevelUpEvent;
-import cn.kylin.dreamlevel.listener.PlayerListener;
-import cn.kylin.dreamlevel.permissions.PerManager;
+import cn.kylin.dreamlevel.dreamlevelreloaded.DreamLevelReloaded;
+import cn.kylin.dreamlevel.dreamlevelreloaded.api.data.Level;
+import cn.kylin.dreamlevel.dreamlevelreloaded.api.data.PlayerData;
+import cn.kylin.dreamlevel.dreamlevelreloaded.config.LangLoader;
+import cn.kylin.dreamlevel.dreamlevelreloaded.api.event.DreamEventCaller;
+import cn.kylin.dreamlevel.dreamlevelreloaded.api.event.DreamPlayerGetExpEvent;
+import cn.kylin.dreamlevel.dreamlevelreloaded.api.event.DreamPlayerLevelUpEvent;
+import cn.kylin.dreamlevel.dreamlevelreloaded.listener.PlayerListener;
+import cn.kylin.dreamlevel.dreamlevelreloaded.permissions.PerManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
@@ -86,7 +86,7 @@ public class CmdExecutor{
                 sender.sendMessage("跨服不支持离线指令 如不需跨服可在config.yml中配置");
                 return;
             }
-            Level level = Main.levels.get(args[2]);
+            Level level = DreamLevelReloaded.levels.get(args[2]);
             if (player != null && level != null) {
                 PlayerData data = level.datas.get(args[1]);
                 String value = args[3];
@@ -130,7 +130,7 @@ public class CmdExecutor{
                 sender.sendMessage("跨服不支持离线指令 如不需跨服可在config.yml中配置");
                 return;
             }
-            Level level = Main.levels.get(args[2]);
+            Level level = DreamLevelReloaded.levels.get(args[2]);
             if (level != null && player != null) {
                 PlayerData data = level.datas.get(args[1]);
                 if (data != null) {
@@ -171,7 +171,7 @@ public class CmdExecutor{
                 sender.sendMessage("跨服不支持离线指令 如不需跨服可在config.yml中配置");
                 return;
             }
-            Level level = Main.levels.get(args[2]);
+            Level level = DreamLevelReloaded.levels.get(args[2]);
             if (player != null && level != null) {
                 PlayerData data = level.datas.get(args[1]);
                 String value = args[3];
@@ -229,8 +229,8 @@ public class CmdExecutor{
     }
 
     private static void reload(CommandSender sender){
-        Main.plugin.reload();
-        sender.sendMessage("DreamLevel" + Main.version + "  重载成功！");
+        DreamLevelReloaded.plugin.reload();
+        sender.sendMessage("DreamLevel" + DreamLevelReloaded.version + "  重载成功！");
     }
 
     // get [playername] [levelname]    获取
@@ -241,7 +241,7 @@ public class CmdExecutor{
                 sender.sendMessage("跨服不支持离线指令 如不需跨服可在config.yml中配置");
                 return;
             }
-            Level level = Main.levels.get(args[2]);
+            Level level = DreamLevelReloaded.levels.get(args[2]);
             if (player != null && level != null) {
                 String info = LangLoader.getInfo(player);
                 PlayerData data = level.datas.get(args[1]);
@@ -271,10 +271,10 @@ public class CmdExecutor{
                 Collection<? extends Player> players = Bukkit.getOnlinePlayers();
                 if ("*".equalsIgnoreCase(args[3])) {
                     // all level
-                    Set<String> keySet = Main.levels.keySet();
+                    Set<String> keySet = DreamLevelReloaded.levels.keySet();
                     Level level;
                     for (String s : keySet) {
-                        level = Main.levels.get(s);
+                        level = DreamLevelReloaded.levels.get(s);
                         for (Player player : players) {
                             duoBeiUtil(player, level, sender, args);
                         }
@@ -290,7 +290,7 @@ public class CmdExecutor{
                     return;
 
                 } else {
-                    Level level = Main.levels.get(args[3]);
+                    Level level = DreamLevelReloaded.levels.get(args[3]);
                     if (level == null) {
                         sender.sendMessage(LangLoader.duoBeiInfo);
                         return;
@@ -311,14 +311,14 @@ public class CmdExecutor{
 
             } else if ("*".equalsIgnoreCase(args[3])) {
                 OfflinePlayer player = Bukkit.getOfflinePlayer(args[2]);
-                Set<String> keySet = Main.levels.keySet();
+                Set<String> keySet = DreamLevelReloaded.levels.keySet();
                 if (player == null) {
                     sender.sendMessage(LangLoader.duoBeiInfo);
                     return;
                 }
                 Level level;
                 for (String s : keySet) {
-                    level = Main.levels.get(s);
+                    level = DreamLevelReloaded.levels.get(s);
                     duoBeiUtil(player, level, sender, args);
                     return;
                 }
@@ -328,7 +328,7 @@ public class CmdExecutor{
                     sender.sendMessage("跨服不支持离线指令 如不需跨服可在config.yml中配置");
                     return;
                 }
-                Level level = Main.levels.get(args[3]);
+                Level level = DreamLevelReloaded.levels.get(args[3]);
                 duoBeiUtil(player, level, sender, args);
                 sender.sendMessage("设置多倍经验成功！ 倍数: " + args[4] + "  时间: " + args[5]);
                 return;
@@ -370,7 +370,7 @@ public class CmdExecutor{
                     data.times += times;
                     Bukkit.getScheduler().runTaskLater(Main.plugin, ()->{
                         OfflinePlayer p = Bukkit.getOfflinePlayer(playerName);
-                        Level l = Main.levels.get(levelName);
+                        Level l = DreamLevelReloaded.levels.get(levelName);
                         PlayerData playerData = l.datas.get(playerName);
                         if (playerData.time != 0) {
                             playerData.times = finalTimes;
@@ -385,9 +385,9 @@ public class CmdExecutor{
                     final String playerName = player.getName();
                     final String levelName = level.getLevelName();
                     data.times += times;
-                    Bukkit.getScheduler().runTaskLater(Main.plugin, ()->{
+                    Bukkit.getScheduler().runTaskLater(DreamLevelReloaded.plugin, ()->{
                         OfflinePlayer p = Bukkit.getOfflinePlayer(playerName);
-                        Level l = Main.levels.get(levelName);
+                        Level l = DreamLevelReloaded.levels.get(levelName);
                         PlayerData playerData = l.datas.get(playerName);
                         if (playerData.time != 0) {
                             playerData.times = finalTimes;
@@ -414,7 +414,7 @@ public class CmdExecutor{
 
 
     public static boolean kuaFu(OfflinePlayer p){
-        return !Main.kuaFu || p.getPlayer() != null;
+        return !DreamLevelReloaded.kuaFu || p.getPlayer() != null;
     }
 
 }

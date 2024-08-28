@@ -1,7 +1,7 @@
 package cn.kylin.dreamlevel.dreamlevelreloaded.config;
 
-import cn.kylin.dreamlevel.Main;
-import cn.kylin.dreamlevel.nms.NmsUtils;
+import cn.kylin.dreamlevel.dreamlevelreloaded.DreamLevelReloaded;
+import cn.kylin.dreamlevel.dreamlevelreloaded.nms.NmsUtils;
 import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;

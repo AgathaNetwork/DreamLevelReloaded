@@ -1,7 +1,7 @@
 package cn.kylin.dreamlevel.dreamlevelreloaded.config;
 
-import cn.kylin.dreamlevel.Main;
-import cn.kylin.dreamlevel.api.data.Level;
+import cn.kylin.dreamlevel.dreamlevelreloaded.DreamLevelReloaded;
+import cn.kylin.dreamlevel.dreamlevelreloaded.api.data.Level;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -10,7 +10,7 @@ import java.util.*;
 
 public class LevelLoader {
 
-    private static final File root = new File(Main.plugin.getDataFolder(), "level");
+    private static final File root = new File(DreamLevelReloaded.plugin.getDataFolder(), "level");
 
     public static void load(){
         if (!root.exists()) root.mkdirs();
@@ -116,7 +116,7 @@ public class LevelLoader {
                         for (String key : keys) {
                             ConfigurationSection section = conf.getConfigurationSection(key);
                             Level level = loadLevel(section);
-                            Main.levels.put(level.getLevelName(), level);
+                            DreamLevelReloaded.levels.put(level.getLevelName(), level);
                         }
                     }
                 }

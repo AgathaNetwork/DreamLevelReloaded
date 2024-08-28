@@ -1,11 +1,11 @@
 package cn.kylin.dreamlevel.dreamlevelreloaded.api.data;
 
-import cn.kylin.dreamlevel.Main;
-import cn.kylin.dreamlevel.config.LangLoader;
-import cn.kylin.dreamlevel.data.DataGeneral;
-import cn.kylin.dreamlevel.api.event.DreamEventCaller;
-import cn.kylin.dreamlevel.api.event.DreamPlayerLevelUpEvent;
-import cn.kylin.dreamlevel.nms.NmsUtils;
+import cn.kylin.dreamlevel.dreamlevelreloaded.DreamLevelReloaded;
+import cn.kylin.dreamlevel.dreamlevelreloaded.config.LangLoader;
+import cn.kylin.dreamlevel.dreamlevelreloaded.data.DataGeneral;
+import cn.kylin.dreamlevel.dreamlevelreloaded.api.event.DreamEventCaller;
+import cn.kylin.dreamlevel.dreamlevelreloaded.api.event.DreamPlayerLevelUpEvent;
+import cn.kylin.dreamlevel.dreamlevelreloaded.nms.NmsUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.configuration.serialization.ConfigurationSerializable;
@@ -114,7 +114,7 @@ public class PlayerData implements ConfigurationSerializable {
     public static PlayerData deserialize(Map<String, Object> map){
         String levelName = (String) map.get("levelName");
         String playerName = (String) map.get("playerName");
-        Level level = Main.levels.get(levelName);
+        Level level = DreamLevelReloaded.levels.get(levelName);
         OfflinePlayer player = Bukkit.getOfflinePlayer(playerName);
         PlayerData data = new PlayerData(level, player);
         data.setCurrentLevel((Integer)map.get("currentLevel"));
@@ -227,7 +227,7 @@ public class PlayerData implements ConfigurationSerializable {
 
 
     private void sendActionBar(long addExp){
-        if (Main.enableActionBar && NmsUtils.levels.contains(this.getLevel().getLevelName())) {
+        if (DreamLevelReloaded.enableActionBar && NmsUtils.levels.contains(this.getLevel().getLevelName())) {
             if (this.getPlayer().getPlayer() != null){
                 Player player = this.getPlayer().getPlayer();
                 String getExp = LangLoader.getGetExp(player)

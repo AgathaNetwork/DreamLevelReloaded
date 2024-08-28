@@ -1,8 +1,8 @@
 package cn.kylin.dreamlevel.dreamlevelreloaded.data.database;
 
-import cn.kylin.dreamlevel.Main;
-import cn.kylin.dreamlevel.api.data.Level;
-import cn.kylin.dreamlevel.api.data.PlayerData;
+import cn.kylin.dreamlevel.dreamlevelreloaded.DreamLevelReloaded;
+import cn.kylin.dreamlevel.dreamlevelreloaded.api.data.Level;
+import cn.kylin.dreamlevel.dreamlevelreloaded.api.data.PlayerData;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 
@@ -250,7 +250,7 @@ public class DreamDatabase {
                 String playerName = rs.getString(1);
                 OfflinePlayer player = Bukkit.getOfflinePlayer(playerName);
                 String levelName = rs.getString(2);
-                Level level = Main.levels.get(levelName);
+                Level level = DreamLevelReloaded.levels.get(levelName);
                 getPlayerData(player, level);
             }
         } catch (SQLException e) {

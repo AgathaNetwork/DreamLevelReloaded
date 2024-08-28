@@ -1,6 +1,6 @@
 package cn.kylin.dreamlevel.dreamlevelreloaded.api;
 
-import cn.kylin.dreamlevel.Main;
+import cn.kylin.dreamlevel.dreamlevelreloaded.DreamLevelReloaded;
 import cn.kylin.dreamlevel.dreamlevelreloaded.api.data.Level;
 import cn.kylin.dreamlevel.dreamlevelreloaded.api.data.PlayerData;
 import cn.kylin.dreamlevel.dreamlevelreloaded.covervanilla.CoverManager;
@@ -19,15 +19,15 @@ import java.util.Set;
 public class DlApi {
 
     public static Map<String, Level> getLevels(){
-        return Main.levels;
+        return DreamLevelReloaded.levels;
     }
 
     public static List<PlayerData> getAllPlayerData(){
         ArrayList<PlayerData> list = new ArrayList<>();
-        Set<String> keys = Main.levels.keySet();
+        Set<String> keys = DreamLevelReloaded.levels.keySet();
         Level level;
         for (String key : keys) {
-            level = Main.levels.get(key);
+            level = DreamLevelReloaded.levels.get(key);
             Set<String> keySet = level.datas.keySet();
             for (String s : keySet) {
                 list.add(level.datas.get(s));
@@ -50,7 +50,7 @@ public class DlApi {
     }
 
     public static boolean enableActionBar(){
-        return Main.enableActionBar;
+        return DreamLevelReloaded.enableActionBar;
     }
 
     public static List<Level> useActionBarLevel(){
