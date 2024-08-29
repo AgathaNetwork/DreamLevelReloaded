@@ -35,7 +35,7 @@ public class LangLoader {
     private static String onMobDeathGiveExpMsg;
 
     public static void init(){
-        langFile = new File(Main.plugin.getDataFolder(), "lang.yml");
+        langFile = new File(DreamLevelReloaded.plugin.getDataFolder(), "lang.yml");
         YamlConfiguration config = YamlConfiguration.loadConfiguration(langFile);
         noCmdPer = ChatColor.translateAlternateColorCodes('&', config.getString("language.nocmdper"));
         noLevelupPer = chatColor(config.getString("language.nolevelupper"));
@@ -47,7 +47,7 @@ public class LangLoader {
         kuaFuEnd = chatColor(config.getString("language.kuaFuEnd"));
         onMobDeathGiveExpMsg = chatColor(config.getString("language.onMobDeathGiveExpMsg"));
         initHelp();
-        Main.plugin.getLogger().info(ChatColor.translateAlternateColorCodes('&', "&a[DreamLevel]语言文件加载成功！"));
+        DreamLevelReloaded.plugin.getLogger().info(ChatColor.translateAlternateColorCodes('&', "&a[DreamLevel]语言文件加载成功！"));
     }
 
     private static void initHelp(){

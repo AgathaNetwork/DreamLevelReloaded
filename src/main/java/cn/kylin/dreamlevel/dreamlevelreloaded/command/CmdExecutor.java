@@ -368,7 +368,7 @@ public class CmdExecutor{
                     final String playerName = player.getName();
                     final String levelName = level.getLevelName();
                     data.times += times;
-                    Bukkit.getScheduler().runTaskLater(Main.plugin, ()->{
+                    Bukkit.getScheduler().runTaskLater(DreamLevelReloaded.plugin, ()->{
                         OfflinePlayer p = Bukkit.getOfflinePlayer(playerName);
                         Level l = DreamLevelReloaded.levels.get(levelName);
                         PlayerData playerData = l.datas.get(playerName);

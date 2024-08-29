@@ -14,10 +14,8 @@ import cn.kylin.dreamlevel.dreamlevelreloaded.permissions.PerManager;
 import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
-import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerExpChangeEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -38,7 +36,7 @@ public class PlayerListener implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event){
         Player player = event.getPlayer();
-        Set<String> keySet = Main.levels.keySet();
+        Set<String> keySet = DreamLevelReloaded.levels.keySet();
         map.put(player.getName(), true);
         Level level;
         for (String s : keySet) {
@@ -119,7 +117,6 @@ public class PlayerListener implements Listener {
     @EventHandler
     public void onPlayerGetExp(DreamPlayerGetExpEvent event){
         PlayerData data = event.getPlayerData();
-        if ()
         if (data.time != 0) {
             long getExp = event.getGetExp();
             event.setGetExp(getExp * (long)data.times);
