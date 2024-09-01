@@ -5,7 +5,6 @@ import cn.kylin.dreamlevel.dreamlevelreloaded.api.data.Level;
 import cn.kylin.dreamlevel.dreamlevelreloaded.api.data.PlayerData;
 import cn.kylin.dreamlevel.dreamlevelreloaded.covervanilla.CoverManager;
 import cn.kylin.dreamlevel.dreamlevelreloaded.data.DataGeneral;
-import cn.kylin.dreamlevel.dreamlevelreloaded.nms.NmsUtils;
 import cn.kylin.dreamlevel.dreamlevelreloaded.permissions.PerManager;
 
 import java.util.ArrayList;
@@ -51,16 +50,6 @@ public class DlApi {
 
     public static boolean enableActionBar(){
         return DreamLevelReloaded.enableActionBar;
-    }
-
-    public static List<Level> useActionBarLevel(){
-        if (!enableActionBar()) return null;
-        List<String> list = NmsUtils.levels;
-        ArrayList<Level> levels = new ArrayList<>();
-        for (String s : list) {
-            levels.add(getLevels().get(s));
-        }
-        return levels;
     }
 
     public static boolean enableCoverVanilla(){

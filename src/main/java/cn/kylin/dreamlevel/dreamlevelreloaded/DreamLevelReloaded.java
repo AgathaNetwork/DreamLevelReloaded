@@ -9,7 +9,6 @@ import cn.kylin.dreamlevel.dreamlevelreloaded.config.LangLoader;
 import cn.kylin.dreamlevel.dreamlevelreloaded.config.LevelLoader;
 import cn.kylin.dreamlevel.dreamlevelreloaded.data.DataGeneral;
 import cn.kylin.dreamlevel.dreamlevelreloaded.listener.PlayerListener;
-import cn.kylin.dreamlevel.dreamlevelreloaded.nms.NmsUtils;
 import cn.kylin.dreamlevel.dreamlevelreloaded.papi.DreamPlaceholderExpansion;
 import cn.kylin.dreamlevel.dreamlevelreloaded.runnable.FlushNoPerMsgRunnable;
 import cn.kylin.dreamlevel.dreamlevelreloaded.runnable.TimesRunnable;
@@ -38,7 +37,6 @@ public class DreamLevelReloaded extends JavaPlugin {
     public void onEnable() {
         plugin = this;
         levels = new HashMap<>();
-        NmsUtils.levels = new ArrayList<>();
         // register Listener  ConfigurationSerialization CommandExecutor
         // reload的时候会第二次注册 就导致执行重复多次的问题！！！！！！
         Bukkit.getPluginManager().registerEvents(new PlayerListener(), this);
@@ -87,7 +85,6 @@ public class DreamLevelReloaded extends JavaPlugin {
         }
 
         levels = new HashMap<>();
-        NmsUtils.levels = new ArrayList<>();
         saveDefaultConfig();
         saveResource("level/default.yml", false);
         saveResource("lang.yml", false);

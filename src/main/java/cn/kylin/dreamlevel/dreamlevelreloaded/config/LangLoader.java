@@ -1,7 +1,6 @@
 package cn.kylin.dreamlevel.dreamlevelreloaded.config;
 
 import cn.kylin.dreamlevel.dreamlevelreloaded.DreamLevelReloaded;
-import cn.kylin.dreamlevel.dreamlevelreloaded.nms.NmsUtils;
 import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
@@ -164,6 +163,9 @@ public class LangLoader {
         if (player == null) return;
         if (msg.startsWith("msg:")) {
             player.sendMessage(msg.substring(4));
+        }
+        /*if (msg.startsWith("msg:")) {
+            player.sendMessage(msg.substring(4));
         } else if (msg.startsWith("actionbar:")){
             NmsUtils.sendActionBar(player, msg.substring(10));
         } else {
@@ -172,7 +174,7 @@ public class LangLoader {
             } else {
                 player.sendMessage(msg);
             }
-        }
+        }*/
 
     }
 }

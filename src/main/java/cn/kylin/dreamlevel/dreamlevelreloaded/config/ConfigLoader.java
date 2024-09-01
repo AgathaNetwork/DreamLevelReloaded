@@ -2,7 +2,6 @@ package cn.kylin.dreamlevel.dreamlevelreloaded.config;
 
 import cn.kylin.dreamlevel.dreamlevelreloaded.DreamLevelReloaded;
 import cn.kylin.dreamlevel.dreamlevelreloaded.covervanilla.CoverManager;
-import cn.kylin.dreamlevel.dreamlevelreloaded.nms.NmsUtils;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -22,7 +21,6 @@ public class ConfigLoader {
         FileConfiguration config = DreamLevelReloaded.plugin.getConfig();
         config.set("version", DreamLevelReloaded.version);
         DreamLevelReloaded.enableActionBar = config.getBoolean("actionBar.enable");
-        NmsUtils.levels = config.getStringList("actionBar.level");
         CoverManager.coverVanilla = config.getBoolean("coverVanilla.enable");
         CoverManager.coverLevel = config.getString("coverVanilla.level");
 

@@ -5,7 +5,6 @@ import cn.kylin.dreamlevel.dreamlevelreloaded.config.LangLoader;
 import cn.kylin.dreamlevel.dreamlevelreloaded.data.DataGeneral;
 import cn.kylin.dreamlevel.dreamlevelreloaded.api.event.DreamEventCaller;
 import cn.kylin.dreamlevel.dreamlevelreloaded.api.event.DreamPlayerLevelUpEvent;
-import cn.kylin.dreamlevel.dreamlevelreloaded.nms.NmsUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.configuration.serialization.ConfigurationSerializable;
@@ -227,7 +226,7 @@ public class PlayerData implements ConfigurationSerializable {
 
 
     private void sendActionBar(long addExp){
-        if (DreamLevelReloaded.enableActionBar && NmsUtils.levels.contains(this.getLevel().getLevelName())) {
+        if (DreamLevelReloaded.enableActionBar) {
             if (this.getPlayer().getPlayer() != null){
                 Player player = this.getPlayer().getPlayer();
                 String getExp = LangLoader.getGetExp(player)
