@@ -12,12 +12,13 @@
 Author: kylin
 version: "2.1.3"
 
+#此功能在2024年的重构中被暂时移除，原因：没有找到高版本适合的NMS组件。
 # 建议开启
-actionBar:
-  enable: true   # 获得经验时显示消息是否使用actionBar  默认为true
+#actionBar:
+#  enable: true   # 获得经验时显示消息是否使用actionBar  默认为true
   # 使用actionbar提示的level的name  可配置多个！！
-  level:
-    - 'dl'
+#  level:
+#    - 'dl'
 # 覆盖原版经验，
 coverVanilla:
   enable: true
