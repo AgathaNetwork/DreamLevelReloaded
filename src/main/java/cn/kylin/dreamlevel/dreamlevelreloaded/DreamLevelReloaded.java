@@ -8,7 +8,6 @@ import cn.kylin.dreamlevel.dreamlevelreloaded.config.ConfigLoader;
 import cn.kylin.dreamlevel.dreamlevelreloaded.config.LangLoader;
 import cn.kylin.dreamlevel.dreamlevelreloaded.config.LevelLoader;
 import cn.kylin.dreamlevel.dreamlevelreloaded.data.DataGeneral;
-import cn.kylin.dreamlevel.dreamlevelreloaded.listener.MythicMobsListener;
 import cn.kylin.dreamlevel.dreamlevelreloaded.listener.PlayerListener;
 import cn.kylin.dreamlevel.dreamlevelreloaded.nms.NmsUtils;
 import cn.kylin.dreamlevel.dreamlevelreloaded.papi.DreamPlaceholderExpansion;
@@ -62,11 +61,6 @@ public class DreamLevelReloaded extends JavaPlugin {
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
             new DreamPlaceholderExpansion(this).register();
             this.getLogger().info("[DreamLevel] PlaceholderAPI兼容成功！");
-        }
-
-        if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
-            Bukkit.getPluginManager().registerEvents(new MythicMobsListener(), this);
-            this.getLogger().info("DreamLevel > MythicMobs兼容成功！支持mm drops");
         }
 
         // runnable

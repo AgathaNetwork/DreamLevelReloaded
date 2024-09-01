@@ -2,3 +2,11 @@ name: DreamLevelReloaded
 version: '${project.version}'
 main: cn.kylin.dreamlevel.dreamlevelreloaded.DreamLevelReloaded
 api-version: '1.21'
+authors: [kylin, De_month, AgathaNetwork]
+softdepend:
+  - PlaceholderAPI
+commands:
+  dlevel:
+    aliases:
+      - dl
+    description: A command used by DreamLevel, please use dlevel help to get more informations.
